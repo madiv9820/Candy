@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
 public:
     int candy(vector<int>& ratings) {
-        return 0;
+        return 1;
     }
 };
 
