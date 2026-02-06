@@ -1,36 +1,38 @@
-# [Candy 🍬](https://leetcode.com/problems/candy/?envType=study-plan-v2&envId=top-interview-150)
+## 🍬 Candy Distribution – Brute Force Approach
+You have `n` children standing in a line, each with a rating 👦👧.
+Your goal is to **distribute candies** 🍭 according to these rules:
+1. Every child must get **at least 1 candy** 🥇
+2. Children with a **higher rating than their neighbors** get **more candies** ⬆️
 
-You’ve got `n` kids standing in a line, each with a **rating** 🎖️ given in the array `ratings`.
+This approach uses a **brute-force strategy** to satisfy the conditions.
 
-**Rules:**
-1. Every kid must get **at least 1 candy 🍫**
-2. Kids with **higher ratings than their neighbors** must get **more candies** 😎
+### 🔹 How It Works
+1. **Initialize candies**
+    - Give **1 candy** to each child 🍬
+    - Ensures no kid is left candy-less
 
-**Goal:** <br>
-Find the **minimum number of candies** needed so that everyone’s happy and no one feels left out. 🏆
+2. **Iterate** through each child 🔁
+    - **Left neighbor check:** if the current child has a higher rating than the left neighbor and has ≤ candies, give 1 extra candy ⬆️
+    - **Right neighbor check:** same logic for the right neighbor
 
-**Meme vibe:** *“You think 1 candy is enough? I’m rated higher than him!”* 😤🍬
+3. **Propagate changes** 🔄
+    - After adjusting the current child, **neighbors might now violate the rules**
+    - **Backward pass:** update left neighbors
+    - **Forward pass:** update right neighbors
+    - Repeat for all children until all conditions are satisfied
 
-### 🍬 Example 1
-- **Input:** `ratings = [1,0,2]`
-- **Output:** `5`
-- **Candy distribution:** `[2,1,2]` 🍭👦🍬
-- **Explanation:**
-    - The first child gets 2 candies because the next kid has a lower rating.
-    - The middle child gets 1 candy (minimum).
-    - The last child gets 2 candies because their rating is higher than the middle child. 😎
+4. **Sum total candies** 💰
+    - Add up all candies in the array to get the **minimum total required**
 
-### 🍬 Example 2
-- **Input:** `ratings = [1,2,2]`
-- **Output**: `4`
-- **Candy distribution:** `[1,2,1]` 🍬👦🍭
-- **Explanation:**
-    - The first child gets 1 candy.
-    - The second child gets 2 candies because their rating is higher than the first child.
-    - The third child gets 1 candy — enough to satisfy the rules since its rating isn’t higher than its neighbor. ✅
+### ⏱️ Complexity
+- **⏰ Time Complexity:**
+    - Nested forward/backward passes → worst-case `O(n²)` ⚠️
+    - Works fine for small inputs, but slow for large arrays (e.g., n > 10⁴) 🐢
 
-### ⚡ Constraints
-- `n == ratings.length` 📏
-- `1 <= n <= 20,000` 👶👦👧…
-- `0 <= ratings[i] <= 20,000` 🎖️
+- **📦 Space Complexity:**
+    - Maintain a candies array of size n → `O(n)` 💾
+    - Only extra space is loop variables 🧹
+
+- ⚡ Note: This brute-force approach is simple and intuitive — great for learning and validation.
+For large datasets, an **optimized linear solution** exists that reduces time to O(n) 🚀
 ---
