@@ -11,10 +11,10 @@ cdef class cppSolution:
     cdef Solution *ptr  # 🧩 Pointer to the C++ Solution object
 
     # 🏗️ Initialize the C++ object
-    def __init__(self): ptr = new Solution()
+    def __init__(self): self.ptr = new Solution()
 
     # 🧹 Clean up the C++ object when Python object is deleted
-    def __dealloc__(self): del(ptr)
+    def __dealloc__(self): del(self.ptr)
 
     # 🍭 Wrapper method to call the C++ candy function
     def cpp_Candy(self, ratings):
