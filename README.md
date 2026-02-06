@@ -33,4 +33,13 @@ Find the **minimum number of candies** needed so that everyone’s happy and no 
 - `n == ratings.length` 📏
 - `1 <= n <= 20,000` 👶👦👧…
 - `0 <= ratings[i] <= 20,000` 🎖️
+
+## 🧠 Approaches
+1. ### [Brute-Force Approach](https://github.com/madiv9820/Candy/tree/Approach_01-Brute_Force)
+    - Give 1 candy to everyone and adjust candies by repeatedly checking neighbors 🔁.
+    - Forward & backward passes until all conditions are satisfied 🔄 — simple but slow for large inputs 🐢.
+
+2. ### [Optimized Two-Pass Approach](https://github.com/madiv9820/Candy/tree/Approach_02-Greedy)
+    - Give 1 candy to everyone, then do a forward pass (left → right) ⬆️ and a backward pass (right → left) ⬆️.
+    - Efficient, neat, and works well for large arrays ⚡ — calculates minimum total candies 💰.
 ---
