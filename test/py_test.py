@@ -11,7 +11,7 @@ class test_py_Solution(unittest.TestCase):
             ([5,4,3,2,1], 15),
             ([1,2,2,3,1], 7),
             ([1], 1),
-            ([1,2,3,2,1,2,3,2,1], 19)
+            ([1,2,3,2,1,2,3,2,1], 17)
         )
         self.__solution = pySolution()
         return super().setUp()
