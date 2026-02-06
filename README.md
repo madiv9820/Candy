@@ -1,36 +1,24 @@
-# [Candy 🍬](https://leetcode.com/problems/candy/?envType=study-plan-v2&envId=top-interview-150)
+## 🍬 Candy Distribution – Optimized Two-Pass Approach
 
-You’ve got `n` kids standing in a line, each with a **rating** 🎖️ given in the array `ratings`.
+Distribute candies to children standing in a line 👦👧 based on their ratings:
+1. Every child must get **at least 1 candy** 🥇
+2. Children with **a higher rating than their neighbors** get more candies ⬆️
 
-**Rules:**
-1. Every kid must get **at least 1 candy 🍫**
-2. Kids with **higher ratings than their neighbors** must get **more candies** 😎
+This implementation uses **an optimized two-pass strategy** for efficiency.
 
-**Goal:** <br>
-Find the **minimum number of candies** needed so that everyone’s happy and no one feels left out. 🏆
+### 🔹 How It Works
+1. **Initialize candies 🍬**
+    - Give **1 candy** to each child. Everyone deserves at least one!
+2. **Forward pass 👈**
+    - Traverse left to right
+    - If the current child has a **higher rating than the left neighbor**, give **1 extra candy**
+3. **Backward pass 👉**
+    - Traverse right to left
+    - If the current child has a **higher rating than the right neighbor**, adjust candies to satisfy the rules
+4. **Sum total candies 💰**
+    - Add all candies to get the **minimum total required**
 
-**Meme vibe:** *“You think 1 candy is enough? I’m rated higher than him!”* 😤🍬
-
-### 🍬 Example 1
-- **Input:** `ratings = [1,0,2]`
-- **Output:** `5`
-- **Candy distribution:** `[2,1,2]` 🍭👦🍬
-- **Explanation:**
-    - The first child gets 2 candies because the next kid has a lower rating.
-    - The middle child gets 1 candy (minimum).
-    - The last child gets 2 candies because their rating is higher than the middle child. 😎
-
-### 🍬 Example 2
-- **Input:** `ratings = [1,2,2]`
-- **Output**: `4`
-- **Candy distribution:** `[1,2,1]` 🍬👦🍭
-- **Explanation:**
-    - The first child gets 1 candy.
-    - The second child gets 2 candies because their rating is higher than the first child.
-    - The third child gets 1 candy — enough to satisfy the rules since its rating isn’t higher than its neighbor. ✅
-
-### ⚡ Constraints
-- `n == ratings.length` 📏
-- `1 <= n <= 20,000` 👶👦👧…
-- `0 <= ratings[i] <= 20,000` 🎖️
+### ⏱️ Complexity
+- **⏰ Time Complexity:** `O(n)` → only **two passes over the array** ⚡
+- **📦 Space Complexity:** `O(n)` → extra **candies array** 💾
 ---
